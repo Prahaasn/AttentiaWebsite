@@ -45,12 +45,12 @@ export function Navbar() {
         transition={{ duration: 0.5, ease: [0.25, 0.1, 0.25, 1] }}
         className={cn(
           "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
-          isScrolled ? "glass py-3" : "bg-transparent py-6"
+          isScrolled ? "glass py-2.5 sm:py-3" : "bg-transparent py-4 sm:py-6"
         )}
       >
-        <div className="container-wide flex items-center justify-between px-4 md:px-6 lg:px-8">
+        <div className="container-wide flex items-center justify-between px-4 sm:px-6 lg:px-8">
           {/* Logo */}
-          <a href="/" className="text-xl font-bold">
+          <a href="/" className="text-lg sm:text-xl font-bold">
             <span className="gradient-text">Attentia</span>
           </a>
 
@@ -110,7 +110,7 @@ export function Navbar() {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
               transition={{ duration: 0.2, delay: 0.1 }}
-              className="absolute top-20 left-4 right-4 glass rounded-2xl p-6"
+              className="absolute top-16 sm:top-20 left-3 right-3 sm:left-4 sm:right-4 glass rounded-xl sm:rounded-2xl p-4 sm:p-6"
             >
               <div className="flex flex-col gap-4">
                 {navLinks.map((link, index) => (
