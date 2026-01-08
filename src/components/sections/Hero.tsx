@@ -96,7 +96,7 @@ export function Hero() {
             <span>97% Detection Accuracy</span>
           </div>
           <div className="hidden sm:block w-1 h-1 bg-gray-600 rounded-full" />
-          <span>Ships January 2026</span>
+          <span>Ships August 2026</span>
           <div className="hidden sm:block w-1 h-1 bg-gray-600 rounded-full" />
           <span>30-Day Money Back</span>
         </motion.div>

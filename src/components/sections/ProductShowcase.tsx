@@ -1,6 +1,8 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { useRef } from "react";
+import { motion, useScroll, useTransform } from "framer-motion";
+import Image from "next/image";
 import { Camera, Cpu, Wifi, Shield } from "lucide-react";
 import { Section } from "@/components/ui/Section";
 import { GradientText } from "@/components/ui/GradientText";
@@ -14,12 +16,24 @@ const specs = [
 ];
 
 export function ProductShowcase() {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start end", "end start"],
+  });
+
+  // Parallax and scale effects
+  const y = useTransform(scrollYProgress, [0, 1], [100, -100]);
+  const scale = useTransform(scrollYProgress, [0, 0.5, 1], [0.8, 1.05, 0.95]);
+  const opacity = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [0.3, 1, 1, 0.3]);
+  const rotateX = useTransform(scrollYProgress, [0, 0.5, 1], [10, 0, -5]);
+
   return (
     <Section id="product" background="darker" padding="lg" className="relative overflow-hidden">
       {/* Background glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary-purple/10 rounded-full blur-[150px] pointer-events-none" />
 
-      <div className="relative z-10">
+      <div className="relative z-10" ref={containerRef}>
         {/* Section Header */}
         <FadeIn className="text-center mb-12 md:mb-16 px-4 sm:px-6">
           <p className="text-xs sm:text-sm font-semibold tracking-wider text-primary-purple uppercase mb-3 md:mb-4">
@@ -34,36 +48,46 @@ export function ProductShowcase() {
           </p>
         </FadeIn>
 
-        {/* Product Image Placeholder */}
+        {/* Product Image with Scroll Animation */}
         <FadeIn className="mb-12 md:mb-16">
-          <div className="relative max-w-4xl mx-auto">
-            {/* Glow effect behind image */}
-            <div className="absolute inset-0 bg-gradient-to-r from-primary-blue/20 via-primary-purple/20 to-accent-pink/20 rounded-3xl blur-3xl scale-95" />
-
-            {/* Product image container */}
+          <div className="relative max-w-4xl mx-auto perspective-1000">
+            {/* Blurred background glow */}
             <motion.div
-              whileHover={{ scale: 1.02 }}
-              transition={{ duration: 0.3 }}
-              className="relative bg-dark-card/50 border border-white/10 rounded-3xl p-8 md:p-12 overflow-hidden"
-            >
-              {/* Placeholder for product image */}
-              <div className="aspect-video bg-gradient-to-br from-dark-lighter to-dark rounded-2xl flex items-center justify-center border border-white/5">
-                <div className="text-center">
-                  <div className="w-24 h-24 md:w-32 md:h-32 mx-auto mb-4 rounded-2xl bg-gradient-primary flex items-center justify-center">
-                    <Camera className="w-12 h-12 md:w-16 md:h-16 text-white" />
-                  </div>
-                  <p className="text-gray-500 text-sm md:text-base">
-                    Product Image Coming Soon
-                  </p>
-                  <p className="text-gray-600 text-xs mt-2">
-                    Attentia Core on Dashboard
-                  </p>
-                </div>
-              </div>
+              style={{ scale, opacity }}
+              className="absolute inset-0 bg-gradient-to-r from-primary-blue/30 via-primary-purple/30 to-accent-pink/30 rounded-3xl blur-[60px] scale-110"
+            />
 
-              {/* Corner accents */}
-              <div className="absolute top-0 left-0 w-20 h-20 border-l-2 border-t-2 border-primary-purple/30 rounded-tl-3xl" />
-              <div className="absolute bottom-0 right-0 w-20 h-20 border-r-2 border-b-2 border-accent-pink/30 rounded-br-3xl" />
+            {/* Product image container with scroll effects */}
+            <motion.div
+              style={{ y, scale, rotateX, opacity }}
+              className="relative"
+            >
+              {/* Outer glow ring */}
+              <div className="absolute -inset-1 bg-gradient-to-r from-primary-blue via-primary-purple to-accent-pink rounded-3xl opacity-20 blur-sm" />
+
+              {/* Main image container */}
+              <div className="relative bg-dark-card/80 border border-white/10 rounded-3xl p-4 md:p-6 overflow-hidden backdrop-blur-sm">
+                {/* Inner gradient border effect */}
+                <div className="absolute inset-0 rounded-3xl bg-gradient-to-r from-primary-blue/10 via-transparent to-accent-pink/10" />
+
+                {/* Product image */}
+                <div className="relative aspect-[16/10] rounded-2xl overflow-hidden">
+                  <Image
+                    src="/images/device.jpg"
+                    alt="Attentia Core Device on Dashboard"
+                    fill
+                    className="object-cover"
+                    priority
+                  />
+
+                  {/* Subtle vignette overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-dark/30 via-transparent to-transparent" />
+                </div>
+
+                {/* Corner accents */}
+                <div className="absolute top-0 left-0 w-20 h-20 border-l-2 border-t-2 border-primary-purple/30 rounded-tl-3xl" />
+                <div className="absolute bottom-0 right-0 w-20 h-20 border-r-2 border-b-2 border-accent-pink/30 rounded-br-3xl" />
+              </div>
             </motion.div>
           </div>
         </FadeIn>

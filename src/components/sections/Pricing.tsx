@@ -124,7 +124,7 @@ export function Pricing() {
                 Pre-order Now
               </Button>
               <p className="mt-4 text-xs text-gray-500">
-                Launching at CES 2026 • Ships January 2026 • 30-day money-back guarantee
+                Launching at CES 2026 • Ships August 2026 • 30-day money-back guarantee
               </p>
             </div>
           </FadeIn>
