@@ -7,9 +7,10 @@ import { Button } from "@/components/ui/Button";
 import { cn } from "@/lib/utils";
 
 const navLinks = [
+  { href: "#product", label: "Product" },
   { href: "#features", label: "Features" },
-  { href: "#how-it-works", label: "How It Works" },
   { href: "#pricing", label: "Pricing" },
+  { href: "#press", label: "Press" },
 ];
 
 export function Navbar() {
@@ -45,7 +46,9 @@ export function Navbar() {
         transition={{ duration: 0.5, ease: [0.25, 0.1, 0.25, 1] }}
         className={cn(
           "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
-          isScrolled ? "glass py-2.5 sm:py-3" : "bg-transparent py-4 sm:py-6"
+          isScrolled
+            ? "glass-dark py-2.5 sm:py-3 border-b border-white/5"
+            : "bg-transparent py-4 sm:py-6"
         )}
       >
         <div className="container-wide flex items-center justify-between px-4 sm:px-6 lg:px-8">
@@ -60,7 +63,7 @@ export function Navbar() {
               <a
                 key={link.href}
                 href={link.href}
-                className="text-gray-700 hover:text-gray-900 transition-colors font-medium"
+                className="text-gray-300 hover:text-white transition-colors font-medium"
               >
                 {link.label}
               </a>
@@ -70,13 +73,13 @@ export function Navbar() {
           {/* CTA Button */}
           <div className="hidden md:block">
             <Button variant="primary" size="sm">
-              Coming Soon
+              Pre-order
             </Button>
           </div>
 
           {/* Mobile Menu Button */}
           <button
-            className="md:hidden p-2 text-gray-700 hover:text-gray-900 transition-colors"
+            className="md:hidden p-2 text-gray-300 hover:text-white transition-colors"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             aria-label="Toggle menu"
           >
@@ -101,7 +104,7 @@ export function Navbar() {
           >
             {/* Backdrop */}
             <div
-              className="absolute inset-0 bg-black/50 backdrop-blur-sm"
+              className="absolute inset-0 bg-black/70 backdrop-blur-sm"
               onClick={() => setIsMobileMenuOpen(false)}
             />
             {/* Menu Panel */}
@@ -110,7 +113,7 @@ export function Navbar() {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
               transition={{ duration: 0.2, delay: 0.1 }}
-              className="absolute top-16 sm:top-20 left-3 right-3 sm:left-4 sm:right-4 glass rounded-xl sm:rounded-2xl p-4 sm:p-6"
+              className="absolute top-16 sm:top-20 left-3 right-3 sm:left-4 sm:right-4 glass-dark rounded-xl sm:rounded-2xl p-4 sm:p-6"
             >
               <div className="flex flex-col gap-4">
                 {navLinks.map((link, index) => (
@@ -120,7 +123,7 @@ export function Navbar() {
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: 0.1 + index * 0.05 }}
-                    className="text-lg font-medium text-gray-900 py-2 hover:text-primary-purple transition-colors"
+                    className="text-lg font-medium text-white py-2 hover:text-primary-purple transition-colors"
                     onClick={() => setIsMobileMenuOpen(false)}
                   >
                     {link.label}
@@ -132,7 +135,7 @@ export function Navbar() {
                   transition={{ delay: 0.25 }}
                 >
                   <Button variant="primary" className="w-full mt-4">
-                    Coming Soon
+                    Pre-order
                   </Button>
                 </motion.div>
               </div>

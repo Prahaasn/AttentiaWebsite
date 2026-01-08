@@ -1,10 +1,11 @@
 import {
   Navbar,
   Hero,
-  Problem,
+  ProductShowcase,
   Features,
   HowItWorks,
   Stats,
+  Press,
   Pricing,
   FinalCTA,
   Footer,
@@ -16,10 +17,11 @@ export default function Home() {
       <Navbar />
       <main>
         <Hero />
-        <Problem />
+        <ProductShowcase />
         <Features />
         <HowItWorks />
         <Stats />
+        <Press />
         <Pricing />
         <FinalCTA />
       </main>

@@ -3,7 +3,7 @@ import { cn } from "@/lib/utils";
 interface SectionProps {
   children: React.ReactNode;
   className?: string;
-  background?: "light" | "dark" | "gray" | "gradient";
+  background?: "dark" | "darker" | "gradient" | "transparent";
   id?: string;
   padding?: "default" | "lg" | "none";
 }
@@ -11,15 +11,15 @@ interface SectionProps {
 export function Section({
   children,
   className,
-  background = "light",
+  background = "dark",
   id,
   padding = "default",
 }: SectionProps) {
   const backgrounds = {
-    light: "bg-white",
     dark: "bg-dark text-white",
-    gray: "bg-gray-50",
+    darker: "bg-dark-lighter text-white",
     gradient: "bg-gradient-primary text-white",
+    transparent: "bg-transparent text-white",
   };
 
   const paddings = {

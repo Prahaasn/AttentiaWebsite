@@ -1,9 +1,11 @@
 export { Navbar } from "./Navbar";
 export { Hero } from "./Hero";
+export { ProductShowcase } from "./ProductShowcase";
 export { Problem } from "./Problem";
 export { Features } from "./Features";
 export { HowItWorks } from "./HowItWorks";
 export { Stats } from "./Stats";
+export { Press } from "./Press";
 export { Pricing } from "./Pricing";
 export { FinalCTA } from "./FinalCTA";
 export { Footer } from "./Footer";
