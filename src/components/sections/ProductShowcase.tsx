@@ -3,7 +3,7 @@
 import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import Image from "next/image";
-import { Camera, Cpu, Wifi, Shield } from "lucide-react";
+import { Camera, Cpu, Signal, Shield } from "lucide-react";
 import { Section } from "@/components/ui/Section";
 import { GradientText } from "@/components/ui/GradientText";
 import { FadeIn, StaggerContainer, StaggerItem } from "@/components/motion";
@@ -11,8 +11,8 @@ import { FadeIn, StaggerContainer, StaggerItem } from "@/components/motion";
 const specs = [
   { icon: Camera, label: "4K Camera", description: "Wide-angle lens" },
   { icon: Cpu, label: "Edge AI", description: "On-device processing" },
-  { icon: Wifi, label: "Bluetooth 5.0", description: "Instant sync" },
-  { icon: Shield, label: "Privacy First", description: "No cloud uploads" },
+  { icon: Signal, label: "LTE Connected", description: "Nationwide coverage" },
+  { icon: Shield, label: "Privacy First", description: "Encrypted data" },
 ];
 
 export function ProductShowcase() {
@@ -113,9 +113,9 @@ export function ProductShowcase() {
             transition={{ duration: 3.5, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
             className="bg-dark-card/80 backdrop-blur-sm border border-white/10 rounded-xl p-4 max-w-[180px]"
           >
-            <Cpu className="w-6 h-6 text-primary-purple mb-2" />
-            <p className="text-sm font-semibold text-white">Edge AI</p>
-            <p className="text-xs text-gray-500">Real-time processing</p>
+            <Signal className="w-6 h-6 text-primary-purple mb-2" />
+            <p className="text-sm font-semibold text-white">LTE Built-in</p>
+            <p className="text-xs text-gray-500">View stats anywhere</p>
           </motion.div>
         </FadeIn>
 

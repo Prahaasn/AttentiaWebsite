@@ -1,6 +1,6 @@
 "use client";
 
-import { Eye, Bell, Smartphone, Wrench, Moon, Shield } from "lucide-react";
+import { Eye, Bell, Smartphone, Signal, Moon, Shield } from "lucide-react";
 import { Section } from "@/components/ui/Section";
 import { Card } from "@/components/ui/Card";
 import { GradientText } from "@/components/ui/GradientText";
@@ -36,9 +36,9 @@ const features = [
     size: "small",
   },
   {
-    icon: Wrench,
-    title: "Edge Processing",
-    description: "All AI runs on-device. No latency, no cloud dependency.",
+    icon: Signal,
+    title: "LTE Connected",
+    description: "Built-in cellular lets you view driving stats from anywhere in the country.",
     size: "small",
   },
   {
