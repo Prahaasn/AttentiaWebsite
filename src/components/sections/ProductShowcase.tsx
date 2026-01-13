@@ -9,7 +9,7 @@ import { GradientText } from "@/components/ui/GradientText";
 import { FadeIn, StaggerContainer, StaggerItem } from "@/components/motion";
 
 const specs = [
-  { icon: Camera, label: "4K Camera", description: "Wide-angle lens" },
+  { icon: Camera, label: "HD Camera", description: "Wide-angle lens" },
   { icon: Cpu, label: "Edge AI", description: "On-device processing" },
   { icon: Signal, label: "LTE Connected", description: "Nationwide coverage" },
   { icon: Shield, label: "Privacy First", description: "Encrypted data" },
@@ -22,30 +22,35 @@ export function ProductShowcase() {
     offset: ["start end", "end start"],
   });
 
-  // Parallax and scale effects for the product
-  const y = useTransform(scrollYProgress, [0, 0.5, 1], [150, 0, -100]);
-  const scale = useTransform(scrollYProgress, [0, 0.4, 0.6, 1], [0.7, 1, 1, 0.9]);
-  const rotateY = useTransform(scrollYProgress, [0, 0.5, 1], [-15, 0, 10]);
-  const rotateX = useTransform(scrollYProgress, [0, 0.5, 1], [20, 0, -10]);
-  const opacity = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [0, 1, 1, 0.5]);
+  // Scale: starts big (1.4) and shrinks as you scroll (down to 0.6)
+  const scale = useTransform(scrollYProgress, [0, 0.5, 1], [1.4, 1, 0.6]);
 
-  // Glow animation
-  const glowOpacity = useTransform(scrollYProgress, [0.3, 0.5, 0.7], [0.3, 0.8, 0.3]);
-  const glowScale = useTransform(scrollYProgress, [0.3, 0.5, 0.7], [0.8, 1.2, 0.9]);
+  // Floating effect with parallax
+  const y = useTransform(scrollYProgress, [0, 1], [-50, 100]);
+
+  // Subtle rotation for 3D effect
+  const rotateX = useTransform(scrollYProgress, [0, 0.5, 1], [5, 0, -5]);
+
+  // Opacity fade
+  const opacity = useTransform(scrollYProgress, [0, 0.15, 0.85, 1], [0, 1, 1, 0.3]);
+
+  // Glow intensifies in the middle
+  const glowOpacity = useTransform(scrollYProgress, [0, 0.5, 1], [0.2, 0.6, 0.2]);
+  const glowScale = useTransform(scrollYProgress, [0, 0.5, 1], [1.2, 1.5, 0.8]);
 
   return (
-    <Section id="product" background="dark" padding="lg" className="relative overflow-hidden">
+    <Section id="product" background="dark" padding="lg" className="relative overflow-hidden min-h-screen">
       {/* Multiple background glows for depth */}
       <motion.div
         style={{ opacity: glowOpacity, scale: glowScale }}
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-primary-purple/20 rounded-full blur-[120px] pointer-events-none"
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary-purple/25 rounded-full blur-[150px] pointer-events-none"
       />
-      <div className="absolute top-1/3 left-1/4 w-[300px] h-[300px] bg-primary-blue/15 rounded-full blur-[100px] pointer-events-none" />
-      <div className="absolute bottom-1/3 right-1/4 w-[300px] h-[300px] bg-accent-pink/15 rounded-full blur-[100px] pointer-events-none" />
+      <div className="absolute top-1/4 left-1/4 w-[400px] h-[400px] bg-primary-blue/20 rounded-full blur-[120px] pointer-events-none" />
+      <div className="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] bg-accent-pink/20 rounded-full blur-[120px] pointer-events-none" />
 
       <div className="relative z-10" ref={containerRef}>
         {/* Section Header */}
-        <FadeIn className="text-center mb-16 md:mb-24 px-4 sm:px-6">
+        <FadeIn className="text-center mb-12 md:mb-16 px-4 sm:px-6">
           <p className="text-xs sm:text-sm font-semibold tracking-wider text-primary-purple uppercase mb-3 md:mb-4">
             The Device
           </p>
@@ -57,59 +62,67 @@ export function ProductShowcase() {
           </p>
         </FadeIn>
 
-        {/* Product Image with 3D Scroll Animation */}
-        <div className="mb-16 md:mb-24 px-4" style={{ perspective: "1000px" }}>
+        {/* Floating Product Image - Large and shrinks on scroll */}
+        <div className="relative mb-16 md:mb-24 px-4" style={{ perspective: "1200px" }}>
           <motion.div
-            style={{ y, scale, rotateX, rotateY, opacity }}
-            className="relative max-w-lg mx-auto"
+            style={{ y, scale, rotateX, opacity }}
+            className="relative mx-auto max-w-3xl"
           >
-            {/* Animated glow behind product */}
+            {/* Animated glow underneath */}
             <motion.div
               animate={{
                 boxShadow: [
-                  "0 0 60px 20px rgba(139, 92, 246, 0.3)",
-                  "0 0 80px 30px rgba(59, 130, 246, 0.3)",
-                  "0 0 60px 20px rgba(236, 72, 153, 0.3)",
-                  "0 0 60px 20px rgba(139, 92, 246, 0.3)",
+                  "0 50px 100px -20px rgba(139, 92, 246, 0.4)",
+                  "0 50px 100px -20px rgba(59, 130, 246, 0.4)",
+                  "0 50px 100px -20px rgba(236, 72, 153, 0.4)",
+                  "0 50px 100px -20px rgba(139, 92, 246, 0.4)",
                 ]
               }}
               transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-              className="absolute inset-0 rounded-3xl"
+              className="absolute inset-0"
             />
 
-            {/* Reflection/shadow underneath */}
-            <div className="absolute -bottom-8 left-1/2 -translate-x-1/2 w-3/4 h-8 bg-gradient-to-t from-primary-purple/20 to-transparent blur-xl rounded-full" />
-
-            {/* Product image */}
-            <div className="relative">
+            {/* Floating animation */}
+            <motion.div
+              animate={{ y: [0, -20, 0] }}
+              transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+            >
+              {/* Product image */}
               <Image
                 src="/images/device.png"
                 alt="Attentia Core Device"
-                width={600}
-                height={400}
-                className="w-full h-auto drop-shadow-2xl"
+                width={800}
+                height={600}
+                className="w-full h-auto drop-shadow-[0_35px_60px_rgba(139,92,246,0.3)]"
                 priority
               />
-            </div>
+            </motion.div>
+
+            {/* Reflection underneath */}
+            <motion.div
+              animate={{ opacity: [0.3, 0.5, 0.3] }}
+              transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+              className="absolute -bottom-16 left-1/2 -translate-x-1/2 w-2/3 h-16 bg-gradient-to-t from-primary-purple/30 via-primary-blue/20 to-transparent blur-2xl rounded-full"
+            />
           </motion.div>
         </div>
 
         {/* Floating features around product on larger screens */}
-        <FadeIn className="hidden lg:block absolute top-1/2 left-8 -translate-y-1/2">
+        <FadeIn className="hidden lg:block absolute top-[40%] left-12 -translate-y-1/2">
           <motion.div
-            animate={{ y: [0, -10, 0] }}
+            animate={{ y: [0, -15, 0] }}
             transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
             className="bg-dark-card/80 backdrop-blur-sm border border-white/10 rounded-xl p-4 max-w-[180px]"
           >
             <Camera className="w-6 h-6 text-primary-blue mb-2" />
-            <p className="text-sm font-semibold text-white">4K Wide Lens</p>
-            <p className="text-xs text-gray-500">160° field of view</p>
+            <p className="text-sm font-semibold text-white">HD Camera</p>
+            <p className="text-xs text-gray-500">Wide-angle lens</p>
           </motion.div>
         </FadeIn>
 
-        <FadeIn className="hidden lg:block absolute top-1/2 right-8 -translate-y-1/2">
+        <FadeIn className="hidden lg:block absolute top-[40%] right-12 -translate-y-1/2">
           <motion.div
-            animate={{ y: [0, 10, 0] }}
+            animate={{ y: [0, 15, 0] }}
             transition={{ duration: 3.5, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
             className="bg-dark-card/80 backdrop-blur-sm border border-white/10 rounded-xl p-4 max-w-[180px]"
           >
@@ -119,8 +132,8 @@ export function ProductShowcase() {
           </motion.div>
         </FadeIn>
 
-        {/* Specs Grid for mobile */}
-        <StaggerContainer className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 px-4 sm:px-6 lg:mt-8">
+        {/* Specs Grid */}
+        <StaggerContainer className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 px-4 sm:px-6">
           {specs.map((spec, index) => {
             const Icon = spec.icon;
             return (
