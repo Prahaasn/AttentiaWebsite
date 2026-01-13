@@ -22,8 +22,8 @@ export function ProductShowcase() {
     offset: ["start end", "end start"],
   });
 
-  // Scale: starts big (1.4) and shrinks as you scroll (down to 0.6)
-  const scale = useTransform(scrollYProgress, [0, 0.5, 1], [1.4, 1, 0.6]);
+  // Scale: starts at 1.1 and shrinks as you scroll (down to 0.7)
+  const scale = useTransform(scrollYProgress, [0, 0.5, 1], [1.1, 1, 0.7]);
 
   // Floating effect with parallax
   const y = useTransform(scrollYProgress, [0, 1], [-50, 100]);
@@ -66,7 +66,7 @@ export function ProductShowcase() {
         <div className="relative mb-16 md:mb-24 px-4" style={{ perspective: "1200px" }}>
           <motion.div
             style={{ y, scale, rotateX, opacity }}
-            className="relative mx-auto max-w-3xl"
+            className="relative mx-auto max-w-md md:max-w-lg lg:max-w-xl"
           >
             {/* Animated glow underneath */}
             <motion.div
@@ -91,9 +91,9 @@ export function ProductShowcase() {
               <Image
                 src="/images/device.png"
                 alt="Attentia Core Device"
-                width={800}
-                height={600}
-                className="w-full h-auto drop-shadow-[0_35px_60px_rgba(139,92,246,0.3)]"
+                width={500}
+                height={284}
+                className="w-full h-auto drop-shadow-[0_25px_50px_rgba(139,92,246,0.4)]"
                 priority
               />
             </motion.div>
