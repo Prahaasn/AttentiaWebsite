@@ -4,7 +4,6 @@ import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import Image from "next/image";
 import { Camera, Cpu, Signal, Shield } from "lucide-react";
-import { Section } from "@/components/ui/Section";
 import { GradientText } from "@/components/ui/GradientText";
 import { FadeIn, StaggerContainer, StaggerItem } from "@/components/motion";
 
@@ -39,14 +38,12 @@ export function ProductShowcase() {
   const glowScale = useTransform(scrollYProgress, [0, 0.5, 1], [1.2, 1.5, 0.8]);
 
   return (
-    <Section id="product" background="dark" padding="lg" className="relative overflow-hidden min-h-screen">
-      {/* Multiple background glows for depth */}
+    <section id="product" className="relative overflow-hidden min-h-screen bg-black py-16 md:py-24">
+      {/* Subtle background glows */}
       <motion.div
         style={{ opacity: glowOpacity, scale: glowScale }}
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary-purple/25 rounded-full blur-[150px] pointer-events-none"
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] bg-primary-purple/10 rounded-full blur-[150px] pointer-events-none"
       />
-      <div className="absolute top-1/4 left-1/4 w-[400px] h-[400px] bg-primary-blue/20 rounded-full blur-[120px] pointer-events-none" />
-      <div className="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] bg-accent-pink/20 rounded-full blur-[120px] pointer-events-none" />
 
       <div className="relative z-10" ref={containerRef}>
         {/* Section Header */}
@@ -157,6 +154,6 @@ export function ProductShowcase() {
           })}
         </StaggerContainer>
       </div>
-    </Section>
+    </section>
   );
 }
