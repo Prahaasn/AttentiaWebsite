@@ -5,7 +5,6 @@ import {
   Features,
   HowItWorks,
   Stats,
-  Press,
   Pricing,
   FinalCTA,
   Footer,
@@ -21,7 +20,6 @@ export default function Home() {
         <Features />
         <HowItWorks />
         <Stats />
-        <Press />
         <Pricing />
         <FinalCTA />
       </main>
