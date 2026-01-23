@@ -1,6 +1,6 @@
 "use client";
 
-import { Twitter, Linkedin, Instagram, Mail } from "lucide-react";
+import { Twitter, Linkedin, Instagram, Mail, Phone } from "lucide-react";
 import { GradientText } from "@/components/ui/GradientText";
 
 const footerLinks = {
@@ -25,7 +25,8 @@ const socialLinks = [
   { icon: Twitter, href: "https://twitter.com", label: "Twitter" },
   { icon: Linkedin, href: "https://linkedin.com", label: "LinkedIn" },
   { icon: Instagram, href: "https://instagram.com", label: "Instagram" },
-  { icon: Mail, href: "mailto:hello@attentiadrive.com", label: "Email" },
+  { icon: Mail, href: "mailto:prahaasn2145@gmail.com", label: "Email" },
+  { icon: Phone, href: "tel:9843779723", label: "Phone" },
 ];
 
 export function Footer() {

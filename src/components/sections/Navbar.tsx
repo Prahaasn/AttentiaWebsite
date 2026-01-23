@@ -73,7 +73,7 @@ export function Navbar() {
           {/* CTA Button */}
           <div className="hidden md:block">
             <Button variant="primary" size="sm">
-              Pre-order
+              Coming Soon
             </Button>
           </div>
 
@@ -135,7 +135,7 @@ export function Navbar() {
                   transition={{ delay: 0.25 }}
                 >
                   <Button variant="primary" className="w-full mt-4">
-                    Pre-order
+                    Coming Soon
                   </Button>
                 </motion.div>
               </div>

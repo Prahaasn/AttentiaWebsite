@@ -121,7 +121,7 @@ export function Pricing() {
                 Get the device and unlock all Pro features
               </p>
               <Button variant="primary" size="lg" className="w-full sm:w-auto">
-                Pre-order Now
+                Preorder Coming Soon
               </Button>
               <p className="mt-4 text-xs text-gray-500">
                 Launching at CES 2026 • Ships August 2026 • 30-day money-back guarantee

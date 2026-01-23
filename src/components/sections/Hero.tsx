@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowRight, Play } from "lucide-react";
+import { Play } from "lucide-react";
 import { Button } from "@/components/ui/Button";
 import { Badge } from "@/components/ui/Badge";
 import { GradientText } from "@/components/ui/GradientText";
@@ -77,13 +77,14 @@ export function Hero() {
           className="flex flex-col sm:flex-row gap-4 justify-center items-center px-4 sm:px-0"
         >
           <Button variant="primary" size="lg" className="w-full sm:w-auto">
-            Pre-order Now
-            <ArrowRight className="ml-2 w-5 h-5" />
+            Preorder Coming Soon
           </Button>
-          <Button variant="secondary" size="lg" className="w-full sm:w-auto">
-            <Play className="mr-2 w-5 h-5" />
-            Watch Demo
-          </Button>
+          <a href="https://youtu.be/NSdL9WxIHMs" target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto">
+            <Button variant="secondary" size="lg" className="w-full">
+              <Play className="mr-2 w-5 h-5" />
+              Watch Demo
+            </Button>
+          </a>
         </motion.div>
 
         {/* Trust indicators */}

@@ -1,6 +1,6 @@
 "use client";
 
-import { ArrowRight, Mail } from "lucide-react";
+import { Mail, Phone } from "lucide-react";
 import { Section } from "@/components/ui/Section";
 import { Button } from "@/components/ui/Button";
 import { GradientText } from "@/components/ui/GradientText";
@@ -29,19 +29,25 @@ export function FinalCTA() {
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8">
           <Button variant="primary" size="lg" className="w-full sm:w-auto">
-            Pre-order Now
-            <ArrowRight className="ml-2 w-5 h-5" />
+            Preorder Coming Soon
           </Button>
         </div>
 
         {/* Contact */}
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-8 text-sm text-gray-500">
           <a
-            href="mailto:hello@attentiadrive.com"
+            href="mailto:prahaasn2145@gmail.com"
             className="flex items-center gap-2 hover:text-white transition-colors"
           >
             <Mail className="w-4 h-4" />
-            hello@attentiadrive.com
+            prahaasn2145@gmail.com
+          </a>
+          <a
+            href="tel:9843779723"
+            className="flex items-center gap-2 hover:text-white transition-colors"
+          >
+            <Phone className="w-4 h-4" />
+            (984) 377-9723
           </a>
         </div>
       </FadeIn>
