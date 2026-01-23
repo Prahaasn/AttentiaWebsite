@@ -5,7 +5,7 @@ import { CountUp, StaggerContainer, StaggerItem } from "@/components/motion";
 
 const stats = [
   { value: 90, suffix: "%", label: "Reduction in distracted incidents" },
-  { value: 165, prefix: "$", label: "One-time purchase" },
+  { value: 125, prefix: "$", label: "One-time purchase" },
   { value: 24, suffix: "/7", label: "Continuous monitoring" },
   { value: 1, prefix: "<", suffix: "s", label: "Alert response time" },
 ];
