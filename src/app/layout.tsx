@@ -11,7 +11,7 @@ const inter = Inter({
 export const metadata: Metadata = {
   title: "Attentia | AI-Powered Driver Safety",
   description:
-    "Attentia uses advanced AI to detect distracted driving in real-time, alerting drivers before accidents happen. Professional-grade safety for just $125.",
+    "Attentia uses advanced AI to detect distracted driving in real-time, alerting drivers before accidents happen. Professional-grade safety for just $165.",
   keywords: [
     "driver safety",
     "distracted driving",
@@ -24,7 +24,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Attentia | AI-Powered Driver Safety",
     description:
-      "Advanced AI to detect distracted driving in real-time. Professional-grade safety for just $125.",
+      "Advanced AI to detect distracted driving in real-time. Professional-grade safety for just $165.",
     url: "https://attentiadrive.com",
     siteName: "Attentia",
     type: "website",
@@ -34,7 +34,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Attentia | AI-Powered Driver Safety",
     description:
-      "Advanced AI to detect distracted driving in real-time. Professional-grade safety for just $125.",
+      "Advanced AI to detect distracted driving in real-time. Professional-grade safety for just $165.",
   },
   robots: {
     index: true,

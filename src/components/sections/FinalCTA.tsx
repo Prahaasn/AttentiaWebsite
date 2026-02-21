@@ -1,40 +1,54 @@
 "use client";
 
+import { motion } from "framer-motion";
 import { Mail, Phone } from "lucide-react";
-import { Section } from "@/components/ui/Section";
 import { Button } from "@/components/ui/Button";
-import { GradientText } from "@/components/ui/GradientText";
-import { FadeIn } from "@/components/motion";
+import { fadeUp, staggerContainer, viewportSettings } from "@/lib/animations";
 
 export function FinalCTA() {
   return (
-    <Section
-      background="dark"
-      padding="lg"
-      className="relative overflow-hidden"
-    >
-      {/* Background decoration */}
-      <div className="absolute inset-0 bg-gradient-mesh opacity-40" />
-      <div className="absolute top-0 left-1/4 w-48 h-48 sm:w-72 sm:h-72 md:w-[500px] md:h-[500px] bg-primary-blue/20 rounded-full blur-[150px] pointer-events-none" />
-      <div className="absolute bottom-0 right-1/4 w-48 h-48 sm:w-72 sm:h-72 md:w-[500px] md:h-[500px] bg-primary-purple/20 rounded-full blur-[150px] pointer-events-none" />
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] md:w-[600px] md:h-[600px] bg-accent-pink/10 rounded-full blur-[200px] pointer-events-none" />
-
-      <FadeIn className="relative z-10 text-center px-4 sm:px-6">
-        <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6 leading-tight">
-          Ready to <GradientText>Drive Safer?</GradientText>
-        </h2>
-        <p className="text-lg sm:text-xl text-gray-400 max-w-2xl mx-auto mb-10 sm:mb-12">
+    <section className="bg-black py-20 md:py-28 lg:py-32 relative">
+      {/* Subtle blue glow */}
+      <div
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] rounded-full opacity-20 pointer-events-none"
+        style={{
+          background: "radial-gradient(ellipse, rgba(24,111,241,0.3) 0%, transparent 70%)",
+        }}
+      />
+      <motion.div
+        initial="hidden"
+        whileInView="visible"
+        viewport={viewportSettings}
+        variants={staggerContainer}
+        className="max-w-[1400px] mx-auto px-6 lg:px-20 text-center relative z-10"
+      >
+        <motion.h2
+          variants={fadeUp}
+          className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight text-white"
+        >
+          Ready to <span className="text-[#186ff1]">Drive Safer?</span>
+        </motion.h2>
+        <motion.p
+          variants={fadeUp}
+          className="text-lg sm:text-xl text-white/70 max-w-2xl mx-auto mb-10"
+        >
           Join thousands of families who trust Attentia to keep their loved ones
           safe on the road. Be among the first when we launch at CES 2026.
-        </p>
-        <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8">
+        </motion.p>
+        <motion.div
+          variants={fadeUp}
+          className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-10"
+        >
           <Button variant="primary" size="lg" className="w-full sm:w-auto">
             Preorder Coming Soon
           </Button>
-        </div>
+        </motion.div>
 
         {/* Contact */}
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-8 text-sm text-gray-500">
+        <motion.div
+          variants={fadeUp}
+          className="flex flex-col sm:flex-row items-center justify-center gap-6 sm:gap-10 text-sm text-white/60"
+        >
           <a
             href="mailto:prahaasn2145@gmail.com"
             className="flex items-center gap-2 hover:text-white transition-colors"
@@ -49,8 +63,8 @@ export function FinalCTA() {
             <Phone className="w-4 h-4" />
             (984) 377-9723
           </a>
-        </div>
-      </FadeIn>
-    </Section>
+        </motion.div>
+      </motion.div>
+    </section>
   );
 }

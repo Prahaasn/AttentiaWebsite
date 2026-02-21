@@ -1,10 +1,12 @@
 export { Navbar } from "./Navbar";
 export { Hero } from "./Hero";
 export { ProductShowcase } from "./ProductShowcase";
+export { ProductDetails } from "./ProductDetails";
 export { Problem } from "./Problem";
 export { Features } from "./Features";
 export { HowItWorks } from "./HowItWorks";
 export { Stats } from "./Stats";
 export { Pricing } from "./Pricing";
+export { FAQ } from "./FAQ";
 export { FinalCTA } from "./FinalCTA";
 export { Footer } from "./Footer";

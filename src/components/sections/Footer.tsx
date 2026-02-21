@@ -1,7 +1,6 @@
 "use client";
 
 import { Twitter, Linkedin, Instagram, Mail, Phone } from "lucide-react";
-import { GradientText } from "@/components/ui/GradientText";
 
 const footerLinks = {
   product: [
@@ -31,32 +30,32 @@ const socialLinks = [
 
 export function Footer() {
   return (
-    <footer className="bg-dark text-white">
-      <div className="container-wide px-4 sm:px-6 lg:px-8 py-10 sm:py-12 md:py-16">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8 mb-8 sm:mb-12">
+    <footer className="bg-black text-white border-t border-white/10">
+      <div className="max-w-[1400px] mx-auto px-6 lg:px-20 py-12 md:py-16">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-12">
           {/* Brand Column */}
           <div className="col-span-2 md:col-span-1 mb-4 md:mb-0">
-            <a href="/" className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4 block">
-              <GradientText>Attentia</GradientText>
+            <a href="/" className="text-2xl font-bold mb-4 block text-white">
+              Attentia
             </a>
-            <p className="text-gray-400 mb-4 sm:mb-6 text-xs sm:text-sm">
+            <p className="text-white/60 mb-6 text-sm">
               AI-powered driver safety for everyone. Preventing distracted
               driving, one trip at a time.
             </p>
             {/* Social Links */}
-            <div className="flex gap-2 sm:gap-3">
+            <div className="flex gap-3">
               {socialLinks.map((social) => {
                 const Icon = social.icon;
                 return (
                   <a
                     key={social.label}
                     href={social.href}
-                    className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20 transition-colors"
+                    className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-[#186ff1] transition-colors"
                     aria-label={social.label}
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    <Icon className="w-4 h-4 sm:w-5 sm:h-5" />
+                    <Icon className="w-5 h-5" />
                   </a>
                 );
               })}
@@ -65,13 +64,13 @@ export function Footer() {
 
           {/* Product Links */}
           <div>
-            <h4 className="font-semibold mb-3 sm:mb-4 text-sm sm:text-base">Product</h4>
-            <ul className="space-y-2 sm:space-y-3">
+            <h4 className="font-semibold mb-4 text-white">Product</h4>
+            <ul className="space-y-3">
               {footerLinks.product.map((link) => (
                 <li key={link.label}>
                   <a
                     href={link.href}
-                    className="text-gray-400 hover:text-white transition-colors text-xs sm:text-sm"
+                    className="text-white/60 hover:text-white transition-colors text-sm"
                   >
                     {link.label}
                   </a>
@@ -82,13 +81,13 @@ export function Footer() {
 
           {/* Company Links */}
           <div>
-            <h4 className="font-semibold mb-3 sm:mb-4 text-sm sm:text-base">Company</h4>
-            <ul className="space-y-2 sm:space-y-3">
+            <h4 className="font-semibold mb-4 text-white">Company</h4>
+            <ul className="space-y-3">
               {footerLinks.company.map((link) => (
                 <li key={link.label}>
                   <a
                     href={link.href}
-                    className="text-gray-400 hover:text-white transition-colors text-xs sm:text-sm"
+                    className="text-white/60 hover:text-white transition-colors text-sm"
                   >
                     {link.label}
                   </a>
@@ -99,13 +98,13 @@ export function Footer() {
 
           {/* Support Links */}
           <div>
-            <h4 className="font-semibold mb-3 sm:mb-4 text-sm sm:text-base">Support</h4>
-            <ul className="space-y-2 sm:space-y-3">
+            <h4 className="font-semibold mb-4 text-white">Support</h4>
+            <ul className="space-y-3">
               {footerLinks.support.map((link) => (
                 <li key={link.label}>
                   <a
                     href={link.href}
-                    className="text-gray-400 hover:text-white transition-colors text-xs sm:text-sm"
+                    className="text-white/60 hover:text-white transition-colors text-sm"
                   >
                     {link.label}
                   </a>
@@ -116,11 +115,11 @@ export function Footer() {
         </div>
 
         {/* Bottom Bar */}
-        <div className="pt-6 sm:pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-3 sm:gap-4">
-          <p className="text-gray-400 text-xs sm:text-sm">
+        <div className="pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4">
+          <p className="text-white/50 text-sm">
             &copy; {new Date().getFullYear()} Attentia. All rights reserved.
           </p>
-          <p className="text-gray-500 text-xs sm:text-sm">
+          <p className="text-white/40 text-sm">
             Made with care for safer roads
           </p>
         </div>

@@ -3,7 +3,7 @@ import { cn } from "@/lib/utils";
 interface SectionProps {
   children: React.ReactNode;
   className?: string;
-  background?: "dark" | "darker" | "gradient" | "transparent";
+  background?: "white" | "light" | "dark";
   id?: string;
   padding?: "default" | "lg" | "none";
 }
@@ -11,21 +11,20 @@ interface SectionProps {
 export function Section({
   children,
   className,
-  background = "dark",
+  background = "white",
   id,
   padding = "default",
 }: SectionProps) {
   const backgrounds = {
-    dark: "bg-dark text-white",
-    darker: "bg-dark-lighter text-white",
-    gradient: "bg-gradient-primary text-white",
-    transparent: "bg-transparent text-white",
+    white: "bg-white text-[#191f2d]",
+    light: "bg-[#f5f6f8] text-[#191f2d]",
+    dark: "bg-[#191f2d] text-white",
   };
 
   const paddings = {
-    default: "py-24 px-4 md:px-6 lg:px-8",
-    lg: "py-32 px-4 md:px-6 lg:px-8",
-    none: "px-4 md:px-6 lg:px-8",
+    default: "py-20 md:py-24 lg:py-28 px-6 md:px-10 lg:px-20",
+    lg: "py-24 md:py-32 lg:py-40 px-6 md:px-10 lg:px-20",
+    none: "px-6 md:px-10 lg:px-20",
   };
 
   return (
@@ -33,7 +32,7 @@ export function Section({
       id={id}
       className={cn(backgrounds[background], paddings[padding], className)}
     >
-      <div className="container-wide">{children}</div>
+      <div className="max-w-[1400px] mx-auto">{children}</div>
     </section>
   );
 }

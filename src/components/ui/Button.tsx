@@ -1,11 +1,9 @@
 "use client";
 
-import { forwardRef } from "react";
-import { motion, HTMLMotionProps } from "framer-motion";
+import { forwardRef, ButtonHTMLAttributes } from "react";
 import { cn } from "@/lib/utils";
-import { buttonHover, buttonTap } from "@/lib/animations";
 
-interface ButtonProps extends Omit<HTMLMotionProps<"button">, "ref"> {
+interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: "primary" | "secondary" | "ghost";
   size?: "sm" | "md" | "lg";
   children: React.ReactNode;
@@ -14,15 +12,15 @@ interface ButtonProps extends Omit<HTMLMotionProps<"button">, "ref"> {
 const Button = forwardRef<HTMLButtonElement, ButtonProps>(
   ({ variant = "primary", size = "md", className, children, ...props }, ref) => {
     const baseStyles =
-      "inline-flex items-center justify-center font-medium rounded-full transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 cursor-pointer";
+      "inline-flex items-center justify-center font-semibold rounded-lg transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 cursor-pointer";
 
     const variants = {
       primary:
-        "bg-gradient-primary text-white shadow-lg hover:shadow-glow focus:ring-primary-purple",
+        "bg-gradient-to-r from-[#7C3AED] via-[#D946EF] to-[#F97316] text-white hover:opacity-90 focus:ring-[#7C3AED]",
       secondary:
-        "bg-white text-gray-900 border border-gray-200 hover:bg-gray-50 focus:ring-gray-300",
+        "bg-white text-[#191f2d] border border-[#e5e7eb] hover:bg-[#f5f6f8] focus:ring-[#191f2d]",
       ghost:
-        "bg-transparent text-gray-700 hover:bg-gray-100 focus:ring-gray-300",
+        "bg-transparent text-[#191f2d] hover:bg-[#f5f6f8] focus:ring-[#191f2d]",
     };
 
     const sizes = {
@@ -32,15 +30,13 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
     };
 
     return (
-      <motion.button
+      <button
         ref={ref}
-        whileHover={buttonHover}
-        whileTap={buttonTap}
         className={cn(baseStyles, variants[variant], sizes[size], className)}
         {...props}
       >
         {children}
-      </motion.button>
+      </button>
     );
   }
 );
